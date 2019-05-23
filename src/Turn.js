@@ -8,6 +8,7 @@ class Turn {
     this.currentPlayer = currentPlayer;
     this.round = round;
     this.guess = '';
+    console.log(this.guess);
   }
 
   // returnCurrentAnswers(){
@@ -15,15 +16,16 @@ class Turn {
   // }
 
   returnUserGuess(guess) {
-    return this.guess = guess;
+    this.guess = guess;
+    this.evaluateGuess(guess);
   }
 
   evaluateGuess(guess) {
     let threeAnswers = this.round.survey.answers;
     let threeWords = threeAnswers.map(el => el.answer)
-    if (threeAnswers.map(el => el.answer).includes(guess)){
+    if (threeAnswers.map(el => el.answer.toUpperCase()).includes(guess.toUpperCase())){
       let scoreUpdate= threeAnswers.find(el => {
-        if(el.answer === guess) {
+        if(el.answer.toUpperCase() === guess.toUpperCase()) {
           return el
         }
       })
@@ -34,17 +36,6 @@ class Turn {
       this.round.changeTurn();
     }
   }
-
-
-
-      
-  //     this.round.checkAnswers();
-  //   } else {
-  //     this.round.changeTurn();
-  //   }
-  // }
-
-
 
 }
 
