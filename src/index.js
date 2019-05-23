@@ -41,7 +41,6 @@ $('.start-button').on('click', function(){
 
 $('.submit-guess').on('click', function(){
  user1.updateScore(100);
-//  console.log(user1)
 });
 
 
