@@ -75,6 +75,11 @@ main {
   width: 50%;
 }
 
+.survey-board {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .round-display {
   border: 2px dotted $primary-accent-color;
   color: #FFFFFF;
@@ -88,11 +93,11 @@ main {
   color: white;
 }
 
-.answer {
+.answer, .respondents  {
   border: 2px solid white;
   height: 40px;
   margin-top: 5px;
-  width: 200px;
+  width: 400px;
 }
 
 .respondents-1,
@@ -112,7 +117,7 @@ main {
 
 .guess-input {
   width: 200px;
-  height: 100px;
+  height: 50px;
 }
 
 .submit-guess {
