@@ -10,6 +10,7 @@ const domUpdates = {
     $('.name-player-one').html(user1);
     $('.name-player-two').html(user2);
   }
+  
 
   // displayWords: function(string){
   //   $('#words').text(string)
