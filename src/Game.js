@@ -41,14 +41,17 @@ class Game {
   start() {
     this.selectFourQuestionsIDs();
     this.setGameSurveyObjects();
-    let round = new Round(this.gameSurveys[0], this.users[0], this.users[1], this);
+    let round = new Round(this, this.gameSurveys[0], this.users[0], this.users[1]);
+    round.displayCurrentQuestion();
     round.updateCurrentPlayer();
     this.gameSurveys.shift();
     this.roundCount++;
+    domUpdates.showCurrentRound(this.roundCount);
   }
   
   updateRound() {
     this.roundCount++;
+    domUpdates.showCurrentRound(this.roundCount);
     if (this.roundCount > 2) {
       let finalRound = new FinalRound();
     }else {

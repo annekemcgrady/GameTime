@@ -3,6 +3,7 @@
 
 $primary-background:purple;
 $primary-accent-color: gold;
+$primary-font: 'Sriracha', cursive;
 
 * {
   box-sizing: border-box;
@@ -11,11 +12,12 @@ $primary-accent-color: gold;
 
 body {
   background-color: $primary-background;
+  font-family: $primary-font;
   position: relative;
 }
 
 header {
-  height: 40px;
+  height: 160px;
   text-align: center;
 }
 
@@ -36,6 +38,10 @@ main {
   height: 70vh;
   margin: 10px;
   width: 25%;
+}
+
+.your-turn {
+  border: 20px dotted $primary-accent-color;
 }
 
 .player-one-name,
@@ -77,8 +83,9 @@ main {
 
 .survey-question {
   border: 2px solid white;
-  height: 40px;
-  width: 200px;
+  height: 100px;
+  width: 600px;
+  color: white;
 }
 
 .answer {
@@ -105,16 +112,17 @@ main {
 
 .guess-input {
   width: 200px;
+  height: 100px;
 }
 
 .submit-guess {
   align-self: center;
   background-color: $primary-accent-color;
   color: $primary-background;
-  font-size: 8px;
+  font-size: 24px;
   margin-top: 10px;
-  width: 50px;
-  height: 30px;
+  width: 200px;
+  height: 100px;
 }
 
 .money-round {

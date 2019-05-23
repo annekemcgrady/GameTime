@@ -10,12 +10,6 @@ class Turn {
     this.guess = '';
   }
 
-  // returnCurrentQuestion(questionID) {
-    //DOM UPDATE
-  //   let currentQuestion = this.survey.surveys.find(el => el.id === questionID)
-  //   return currentQuestion.question
-  // }
-
   // returnCurrentAnswers(){
   //   return this.answers = this.surveys.answers.map(el => el.answer)
   // }
