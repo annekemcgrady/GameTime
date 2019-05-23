@@ -9,6 +9,7 @@ class Game {
     this.gameSurveys = [];
     this.roundCount = 0;
     this.ids = [];
+    this.round = {};
   }
 
   selectFourQuestionsIDs(){
@@ -41,9 +42,10 @@ class Game {
   start() {
     this.selectFourQuestionsIDs();
     this.setGameSurveyObjects();
-    let round = new Round(this, this.gameSurveys[0], this.users[0], this.users[1]);
-    round.displayCurrentQuestion();
-    round.updateCurrentPlayer();
+    let newRound = new Round(this, this.gameSurveys[0], this.users[0], this.users[1]);
+    this.round = newRound;
+    this.round.displayCurrentQuestion();
+    this.round.updateCurrentPlayer();
     this.gameSurveys.shift();
     this.roundCount++;
     domUpdates.showCurrentRound(this.roundCount);
@@ -55,7 +57,8 @@ class Game {
     if (this.roundCount > 2) {
       let finalRound = new FinalRound();
     }else {
-      let round = new Round(this.gameSurveys[0], this.users[0], this.users[1], this);
+      let newRound = new Round(this.gameSurveys[0], this.users[0], this.users[1], this);
+      this.round = newRound
       this.gameSurveys.shift()
     }
   }

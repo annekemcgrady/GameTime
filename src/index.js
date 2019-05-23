@@ -16,6 +16,8 @@ import data from '../data/surveys';
 import User from './User';
 import Game from './Game';
 import domUpdates from './domUpdates';
+import Round from './Round';
+import Turn from './Turn';
 let game;
 let user1;
 let user2;
@@ -47,7 +49,7 @@ $('.start-button').on('click', function(){
 })
 
 $('.submit-guess').on('click', function(){
-    console.log(game.users)
+    game.round.turn.returnUserGuess($('#user-guess-input').val())
 });
 
 

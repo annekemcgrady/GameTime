@@ -29,6 +29,8 @@ const domUpdates = {
     }
   }
 
+
+
   // displayWords: function(string){
   //   $('#words').text(string)
   // }
