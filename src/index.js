@@ -20,18 +20,30 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
     })
     .then(function(parsedData){
         data = parsedData;
-        let user1 = new User("Anneke", "playerOne")
-        let user2 = new User("Andreea", "playerTwo")
-        let game = new Game(data, user1, user2)
+        var user1 = new User("Anneke", "playerOne")
+        var user2 = new User("Andreea", "playerTwo")
+        var game = new Game(data, user1, user2)
     })
     .catch(err => console.error('Error'));
+
 
 import User from './User';
 import Game from './Game';
 
+$(document).ready(function() {
+
+$('body').prepend('<section class="landing-page"><h1 class="landing-title">Welcome to Family Feud!  Let\'s Start the Game!</h1><input class="name-one" placeholder="Player One Name"><input class="name-two" placeholder="Player Two Name"><button class="start-button" type="button" id="star-five"></button></section>')
+
+$('.start-button').on('click', function(){
+ $('.landing-page').slideToggle('slow')
+
+})
 
 $('.submit-guess').on('click', function(){
-  user1.updateScore(100);
-  console.log(user1)
+ user1.updateScore(100);
+//  console.log(user1)
 });
+
+
+})
 
