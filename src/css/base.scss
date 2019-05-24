@@ -106,6 +106,10 @@ main {
   color:$primary-accent-color;
 }
 
+.hidden {
+  display: none;
+}
+
 .player-guess {
   display: flex;
   flex-direction: column;
