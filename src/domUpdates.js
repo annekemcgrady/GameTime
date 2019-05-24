@@ -19,6 +19,15 @@ const domUpdates = {
     $('.question').html(question)
   },
 
+  setAnswers(survey){
+    $('.answer-1').html(survey.answers[0].answer)
+    $('.answer-2').html(survey.answers[1].answer)
+    $('.answer-3').html(survey.answers[2].answer)
+    $('.respondents-1').html(survey.answers[0].respondents)
+    $('.respondents-2').html(survey.answers[1].respondents)
+    $('.respondents-3').html(survey.answers[2].respondents)
+  },
+
   displayCurrentPlayer(player){
     if(player.player === 'playerOne'){
       $('.player-one').addClass('your-turn');
@@ -48,6 +57,15 @@ const domUpdates = {
       $('.answer-3').removeClass('hidden');
       $('.respondents-3').removeClass('hidden');
     }   
+  },
+
+  addHiddenClass() {
+    $('.answer-1').addClass('hidden');
+    $('.respondents-1').addClass('hidden');
+    $('.answer-2').addClass('hidden');
+    $('.respondents-2').addClass('hidden');
+    $('.answer-3').addClass('hidden');
+    $('.respondents-3').addClass('hidden');
   }
 
 
