@@ -45,12 +45,6 @@ $('.start-button').on('click', function(){
     game = new Game(data, user1, user2);
     game.start();
     $('.landing-page').slideToggle('slow');
-    $('.answer-1').html(game.round.answers[0].answer)
-    $('.answer-2').html(game.round.answers[1].answer)
-    $('.answer-3').html(game.round.answers[2].answer)
-    $('.respondents-1').html(game.round.answers[0].respondents)
-    $('.respondents-2').html(game.round.answers[1].respondents)
-    $('.respondents-3').html(game.round.answers[2].respondents)
     domUpdates.displayNames(user1.name, user2.name);
 })
 
