@@ -8,7 +8,7 @@ class Round {
     this.game = game;
     this.survey = survey;
     this.answers = this.survey.answers.sort((a,b) => b.respondents-a.respondents)
-    console.log(this.answers);
+    console.log(this.survey);
     this.users = [user1, user2];
     // this.currentPlayer = null;
     this.turn = {};
@@ -25,13 +25,11 @@ class Round {
     if(this.turn.currentPlayer === null) {
       this.turn.currentPlayer = this.users[0];
       this.turn = newTurn;
-      console.log(this.turn)
       domUpdates.displayCurrentPlayer(this.turn.currentPlayer)
     } else if (this.game.roundCount === 2) {
       this.turn.currentPlayer = this.users[1];
       let turn = new Turn (this);
       this.turn = newTurn; 
-      console.log(this.turn)
       domUpdates.displayCurrentPlayer(this.turn.currentPlayer)
     }
   }
@@ -40,15 +38,15 @@ class Round {
     let index = this.users.indexOf(this.turn.currentPlayer);
     this.turn.currentPlayer = this.users[1-index];
     let turn = new Turn (this);
-    console.log(this.turn.currentPlayer);
     domUpdates.displayCurrentPlayer(this.turn.currentPlayer);
   }
 
   eliminateGuessedAnswer(index) {
     if (this.answers.length > 0) {
-      return this.answers.splice(index, 1)
-    } else {
-      this.game.updateRound();
+      this.answers = this.answers.splice(index, 1)
+      if (this.answers.length === 0){
+        this.game.updateRound();
+      }
     }
   }
 

@@ -9,7 +9,6 @@ class Turn {
     this.currentPlayer = null;
     this.round = round;
     this.guess = '';
-    console.log(this.guess);
   }
 
   // returnCurrentAnswers(){
