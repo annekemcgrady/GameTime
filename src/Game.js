@@ -44,6 +44,7 @@ class Game {
     this.setGameSurveyObjects();
     let newRound = new Round(this, this.gameSurveys[0], this.users[0], this.users[1]);
     this.round = newRound;
+    console.log(this.round);
     this.round.displayCurrentQuestion();
     this.round.updateCurrentPlayer();
     this.gameSurveys.shift();
