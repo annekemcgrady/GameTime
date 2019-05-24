@@ -27,7 +27,7 @@ const domUpdates = {
       $('.player-two').addClass('your-turn');
       $('.player-one').removeClass('your-turn');
     }
-  }
+  },
 
 
 
@@ -35,9 +35,15 @@ const domUpdates = {
   //   $('#words').text(string)
   // }
 
-  // displayScore: function(score){
-  //   $('.player-one-score').text(score)
-  // }
+  displayScore(player, score){
+    console.log('player', player)
+    if(player === 'playerTwo') {
+      $('.player-two-score').text(score);
+    } else {
+      console.log('should be player 2', player);
+      $('.player-one-score').text(score);
+    }
+  }
 
 
 };

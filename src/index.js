@@ -48,7 +48,8 @@ $('.start-button').on('click', function(){
     domUpdates.displayNames(user1.name, user2.name);
 })
 
-$('.submit-guess').on('click', function(){
+$('.submit-guess').on('click', function(e){
+    e.preventDefault();
     game.round.turn.returnUserGuess($('#user-guess-input').val())
 });
 
