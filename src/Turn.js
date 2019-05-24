@@ -30,6 +30,7 @@ class Turn {
           return el
         }
       })
+      domUpdates.displayEachAnswer(scoreUpdate)
       this.currentPlayer.updateScore(scoreUpdate.respondents);
       let indexOfGuess = threeWords.indexOf(guess.toUpperCase());
       this.round.eliminateGuessedAnswer(indexOfGuess);

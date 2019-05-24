@@ -29,12 +29,6 @@ const domUpdates = {
     }
   },
 
-
-
-  // displayWords: function(string){
-  //   $('#words').text(string)
-  // }
-
   displayScore(player, score){
     console.log('player', player)
     if(player === 'playerTwo') {
@@ -43,6 +37,19 @@ const domUpdates = {
       console.log('should be player 2', player);
       $('.player-one-score').text(score);
     }
+  },
+
+  displayEachAnswer() {
+    if ($('.answer-1').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
+      $('.answer-1').removeClass('hidden');
+      $('.respondents-1').removeClass('hidden');
+    } else if ($('.answer-2').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
+      $('.answer-2').removeClass('hidden');
+      $('.respondents-2').removeClass('hidden');
+    } else if ($('.answer-3').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
+      $('.answer-3').removeClass('hidden');
+      $('.respondents-3').removeClass('hidden');
+    }   
   }
 
 

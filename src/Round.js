@@ -7,7 +7,7 @@ class Round {
   constructor(game, survey, user1, user2) {
     this.game = game;
     this.survey = survey;
-    this.answers = this.survey.answers
+    this.answers = this.survey.answers.sort((a,b) => b.respondents-a.respondents)
     console.log(this.answers);
     this.users = [user1, user2];
     // this.currentPlayer = null;
