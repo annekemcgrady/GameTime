@@ -43,7 +43,8 @@ class Round {
 
   eliminateGuessedAnswer(index) {
     if (this.answers.length > 0) {
-      this.answers = this.answers.splice(index, 1)
+      this.answers.splice(index, 1)
+      console.log(this.answers)
       if (this.answers.length === 0){
         this.game.updateRound();
       }
