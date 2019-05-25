@@ -3,11 +3,17 @@ import Game from './Game';
 import Round from './Round';
 
 class FinalRound extends Round {
-  constructor(multiplier) {
-    this.multiplier = multiplier;
-    //what additional properties are needed here? It will take all the properties from Round
+  constructor(game, survey, user1, user2) {
+  super(game, survey, user1, user2)
+    // this.multiplier = 2;
   }
 
-  //method to start timer
+  // gameTimer()
 
 }
+
+
+
+
+
+export default FinalRound;

@@ -5,6 +5,13 @@ import Game from '../src/Game';
 var chai = require('chai');
 var expect = chai.expect;
 
+
+import spies from 'chai-spies';
+chai.use(spies);
+import domUpdates from '../src/domUpdates';
+chai.spy.on(domUpdates, 'displayCurrentQuestion', () => true)
+chai.spy.on(domUpdates, 'displayCurrentPlayer', () => true)
+
 const sampleSurvey = { survey:
   { id: 1,
     question:
@@ -41,12 +48,14 @@ describe('Round', function() {
   let user2;
   let game;
   let round;
+  let turn;
 
   beforeEach(function() {
     user1 = new User('Anneke', 'playerOne');
     user2 = new User('Andreea', 'playerTwo');
     game = new Game(sampleData, user1, user2)
     round = new Round(game, sampleSurvey, user1, user2);
+    turn = new Turn(round);
   }) 
 
   it('should be a function', function() {
@@ -61,21 +70,17 @@ describe('Round', function() {
     expect(round.users).to.eql([user1, user2])
   });
 
-  it('should have the currentPlayer default to null', function() {
-    expect(round.currentPlayer).to.equal(null);
-  });
-
   it('should update current player', function(){
-    expect(round.currentPlayer).to.equal(null);
+    expect(turn.currentPlayer).to.equal(null);
     round.updateCurrentPlayer();
-    expect(round.currentPlayer).to.equal(user1)
+    expect(turn.currentPlayer).to.equal(user1)
   });
 
   it('should switch the turn to the other player', function(){
     round.updateCurrentPlayer();
-    expect(round.currentPlayer).to.equal(user1);
+    expect(round.turn.currentPlayer).to.equal(user1);
     round.changeTurn();
-    expect(round.currentPlayer).to.equal(user2)
+    expect(round.turn.currentPlayer).to.equal(user2)
   });
 
   it('should eliminate a correct answer from the array, if it has already been guessed, and end round if array is empty', function(){

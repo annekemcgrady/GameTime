@@ -4,6 +4,14 @@ import Game from '../src/Game';
 var chai = require('chai');
 var expect = chai.expect;
 
+import spies from 'chai-spies';
+chai.use(spies);
+import domUpdates from '../src/domUpdates';
+chai.spy.on(domUpdates, 'setAnswers', () => true)
+chai.spy.on(domUpdates, 'showCurrentRound', () => true)
+chai.spy.on(domUpdates, 'addHiddenClass', () => true)
+
+
 const sampleData = {
   surveys: [
     { id: 1, question: 'If You Drew Homer Simpson\'s Name In A Secret Santa Exchange, What Would You Buy Him?' },

@@ -66,6 +66,22 @@ const domUpdates = {
     $('.respondents-2').addClass('hidden');
     $('.answer-3').addClass('hidden');
     $('.respondents-3').addClass('hidden');
+  },
+
+
+  displayAllCorrectAnswers() {
+    if($('.answer-1').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
+      $('.answer-1').removeClass('hidden');
+      $('.respondents-1').removeClass('hidden');
+    } 
+    if ($('.answer-2').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
+      $('.answer-2').removeClass('hidden');
+      $('.respondents-2').removeClass('hidden');
+    } 
+    if ($('.answer-3').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
+      $('.answer-3').removeClass('hidden');
+      $('.respondents-3').removeClass('hidden');
+    }   
   }
 
 

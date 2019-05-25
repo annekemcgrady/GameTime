@@ -5,6 +5,12 @@ import Game from '../src/Round';
 var chai = require('chai');
 var expect = chai.expect;
 
+import spies from 'chai-spies';
+chai.use(spies);
+import domUpdates from '../src/domUpdates';
+chai.spy.on(domUpdates, 'displayEachAnswer', () => true)
+
+
 const sampleSurvey = { survey:
   { id: 1,
     question:
@@ -60,6 +66,10 @@ describe('Turn', function() {
     expect(turn).to.be.an.instanceof(Turn);
   });
 
+  it('should have the currentPlayer default to null', function() {
+    expect(turn.currentPlayer).to.equal(null);
+  });
+
   it('should default the guess to an empty string', function() {
     expect(turn.guess).to.equal('');
   });
@@ -82,6 +92,11 @@ describe('Turn', function() {
     turn.evaluateGuess('Beeeeeeeer');
     expect(round.currentPlayer.name).to.equal('Andreea');
   });
+
+
+
+
+
 
   // it('should be able to change turns between players', function(){
   //   expect(turn.isPlayerOneTurn).to.equal(true);

@@ -10,7 +10,6 @@ class Round {
     this.answers = this.survey.answers.sort((a,b) => b.respondents-a.respondents)
     console.log(this.survey);
     this.users = [user1, user2];
-    // this.currentPlayer = null;
     this.turn = {};
     console.log(this.turn)
   }
@@ -20,7 +19,7 @@ class Round {
   }
 
   updateCurrentPlayer() {
-    let newTurn = new Turn (this);
+    let newTurn = new Turn(this);
     this.turn = newTurn; 
     if(this.turn.currentPlayer === null) {
       this.turn.currentPlayer = this.users[0];

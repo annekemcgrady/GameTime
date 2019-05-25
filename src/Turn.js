@@ -37,6 +37,30 @@ class Turn {
       this.round.changeTurn();
     }
   }
+
+//Need to finish
+
+  // finalRoundEvaluateGuess(guess) {
+  //   let threeAnswers = this.round.survey.answers;
+  //   let threeWords = threeAnswers.map(el => el.answer.toUpperCase())
+  //   if (threeAnswers.map(el => el.answer.toUpperCase()).includes(guess.toUpperCase())){
+  //     let scoreUpdate= threeAnswers.find(el => {
+  //       if(el.answer.toUpperCase() === guess.toUpperCase()) {
+  //         return el
+  //       }
+  //     })
+  //     this.currentPlayer.updateScore(scoreUpdate.respondents*);
+  //     let indexOfGuess = threeWords.indexOf(guess.toUpperCase());
+  //     this.round.eliminateGuessedAnswer(indexOfGuess);
+  //   } 
+  // }
+
+
+//after 30 seconds
+//finalRoundEvaluateGuess
+  // domUpdates.displayAllCorrectAnswers(scoreUpdate) //displayAllCorrectAnswers
+ 
+
 }
 
 export default Turn;
