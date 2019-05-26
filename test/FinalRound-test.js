@@ -1,7 +1,7 @@
-import Round from '../src/Round';
 import Game from '../src/Game';
-import FinalRound from '../src/FinalRound';
 import User from '../src/User';
+import Round from '../src/Round';
+import FinalRound from '../src/FinalRound';
 var chai = require('chai');
 var expect = chai.expect;
 
@@ -42,6 +42,7 @@ describe('FinalRound', function() {
   let user1;
   let user2;
   let game;
+  let round
   let finalRound;
   
 
@@ -49,7 +50,8 @@ describe('FinalRound', function() {
     user1 = new User('Anneke', 'playerOne');
     user2 = new User('Andreea', 'playerTwo');
     game = new Game(sampleData, user1, user2);
-    finalRound = new FinalRound(game, sampleSurvey, user1, user2);
+    round = new Round(game, sampleSurvey, user1, user2);
+    finalRound = new FinalRound(game, sampleSurvey, user1, user2, sampleSurvey);
    
   }) 
 
@@ -60,5 +62,24 @@ describe('FinalRound', function() {
   it('should be an instance of FinalRound', function() {
     expect(finalRound).to.be.an.instanceof(FinalRound);
   });
+
+  it('should hold a second survey in the constructor of FinalRound', function() {
+    expect(finalRound.secondSurvey).to.equal(sampleSurvey);
+  });
+  
+  it('should evaluate if each guess is correct or not, by eliminating the answer from the array of the correct answers', function() {
+    finalRound.updateCurrentPlayer();
+    finalRound.evaluateFinalRoundGuess("Donuts");
+    expect(finalRound.answers.length).to.equal(2);
+  });
+
+  it('should change the current player to the other person', function() {
+    finalRound.updateCurrentPlayer();
+    expect(finalRound.currentPlayer.name).to.equal("Anneke");
+    finalRound.changeFinalRoundTurn();
+    expect(finalRound.currentPlayer.name).to.equal("Andreea");
+  });
+
+
 
 });

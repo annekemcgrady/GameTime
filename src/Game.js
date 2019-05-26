@@ -1,7 +1,7 @@
 import domUpdates from './domUpdates';
 import Round from './Round';
 import data from '../data/surveys';
-// import FinalRound from './FinalRound';
+import FinalRound from './FinalRound';
 
 class Game {
   constructor(data, user1, user2) {
@@ -58,8 +58,13 @@ class Game {
     this.roundCount++;
     domUpdates.showCurrentRound(this.roundCount);
     if (this.roundCount > 2) {
-      let finalRound = new FinalRound(this, this.gameSurveys[0], this.users[0], this.users[1]);
+      let finalRound = new FinalRound(this, this.gameSurveys[0], this.users[0], this.users[1], this.gameSurveys[1]);
       this.finalRound = finalRound;
+      domUpdates.addHiddenClass();
+      domUpdates.setAnswers(this.gameSurveys[0]);
+      // this.gameSurveys.shift();
+      this.finalRound.displayFinalRoundCurrentQuestion();
+      this.round.updateCurrentPlayer();
     }else {
       let newRound = new Round(this, this.gameSurveys[0], this.users[0], this.users[1]);
       this.round = newRound;

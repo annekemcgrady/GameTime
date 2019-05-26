@@ -1,16 +1,9 @@
 import User from '../src/User';
 import Round from '../src/Round';
 import Game from '../src/Game';
+import FinalRound from '../src/FinalRound';
 var chai = require('chai');
 var expect = chai.expect;
-
-import spies from 'chai-spies';
-chai.use(spies);
-import domUpdates from '../src/domUpdates';
-chai.spy.on(domUpdates, 'setAnswers', () => true)
-chai.spy.on(domUpdates, 'showCurrentRound', () => true)
-chai.spy.on(domUpdates, 'addHiddenClass', () => true)
-
 
 const sampleData = {
   surveys: [
