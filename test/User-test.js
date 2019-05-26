@@ -7,7 +7,17 @@ var expect = chai.expect;
 import spies from 'chai-spies';
 chai.use(spies);
 import domUpdates from '../src/domUpdates';
-chai.spy.on(domUpdates, 'displayScore', () => true)
+
+chai.spy.on(domUpdates, [
+  'displayScore',
+  'displayCurrentQuestion',
+  'displayCurrentPlayer',
+  'displayEachAnswer',
+  'setAnswers',
+  'showCurrentRound',
+  'addHiddenClass',
+  'displayFinalRoundScore'
+], () => true);
 
 const sampleData = {
 surveys: [
@@ -57,6 +67,12 @@ describe('User', function() {
     expect(user.score).to.equal(0);
     user.updateScore(30);
     expect(user.score).to.equal(30);
+  })
+
+  it('should update the score in the Final Round according to the amount of respondents times two', function(){
+    expect(user.score).to.equal(0);
+    user.updateFinalRoundScore(30);
+    expect(user.score).to.equal(60);
   })
 
 })

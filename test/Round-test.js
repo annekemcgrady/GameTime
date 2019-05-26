@@ -5,13 +5,6 @@ var chai = require('chai');
 var expect = chai.expect;
 
 
-import spies from 'chai-spies';
-chai.use(spies);
-import domUpdates from '../src/domUpdates';
-chai.spy.on(domUpdates, 'displayCurrentQuestion', () => true)
-chai.spy.on(domUpdates, 'displayCurrentPlayer', () => true)
-chai.spy.on(domUpdates, 'displayEachAnswer', () => true)
-
 const sampleSurvey = { survey:
   { id: 1,
     question:
@@ -151,7 +144,6 @@ describe('Round', function() {
      expect(round.answers.length).to.equal(1);
      round.eliminateGuessedAnswer(0);
      expect(round.answers.length).to.equal(0);
-     game.updateRound();
      expect(game.roundCount).to.equal(2);
    })
 

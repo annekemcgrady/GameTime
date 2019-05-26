@@ -14,6 +14,10 @@ class User {
     domUpdates.displayScore(this.player, this.score);
   }
 
+  updateFinalRoundScore(amount) {
+    this.score += amount*2
+    domUpdates.displayFinalRoundScore(this.player, this.score);
+  }
   //DOM update name 
 
 }
