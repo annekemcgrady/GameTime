@@ -67,6 +67,7 @@ class Game {
       domUpdates.setAnswers(this.gameSurveys[0]);
       this.gameSurveys.shift();
       this.round.displayCurrentQuestion();
+      this.round.updateCurrentPlayer();
     }
   }
 
