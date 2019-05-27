@@ -124,7 +124,7 @@ main {
   height: 50px;
 }
 
-.submit-guess {
+.submit-guess, .quit {
   align-self: center;
   background-color: $primary-accent-color;
   color: $primary-background;
@@ -133,7 +133,3 @@ main {
   width: 400px;
   height: 100px;
 }
-
-
-
-

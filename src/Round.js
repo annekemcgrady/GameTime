@@ -52,12 +52,12 @@ class Round {
       let indexOfGuess = threeWords.indexOf(guess.toUpperCase());
       this.eliminateGuessedAnswer(indexOfGuess);
     } else {
-      this.changeTurn();
+      this.changeTurn(this.currentPlayer);
     }
   }
   
-  changeTurn() {
-    let index = this.users.indexOf(this.currentPlayer);
+  changeTurn(currentPlayer) {
+    let index = this.users.indexOf(currentPlayer);
     this.currentPlayer = this.users[1-index];
     domUpdates.displayCurrentPlayer(this.currentPlayer);
   }
@@ -72,8 +72,7 @@ class Round {
   }
 
   finishRoundMessage() {
-}
-
+  }
 }
 
 export default Round;
