@@ -26,10 +26,15 @@ class FinalRound extends Round {
   }
 
   evaluateFinalRoundGuess(guess) {
+    let threeAnswers;
     console.log("SURVEY", this.survey)
     console.log("SECOND survey", this.secondSurvey)
     console.log("ANSWERS", this.answers)
-    let threeAnswers = this.answers;
+    if (this.currentPlayer === this.users[0]){
+      threeAnswers = this.answers;
+    } else {
+      threeAnswers = this.secondAnswers;
+    }
     let threeWords = threeAnswers.map(el => el.answer.toUpperCase())
     if (threeAnswers.map(el => el.answer.toUpperCase()).includes(guess.toUpperCase())){
       let scoreUpdate= threeAnswers.find(el => {
@@ -52,7 +57,7 @@ class FinalRound extends Round {
     domUpdates.displayFinalRoundScore();
 
     // domUpdates.
-    this.changeTurn();
+    this.changeTurn(this.users[0]);
     domUpdates.setAnswers(this.secondSurvey);
   }
 

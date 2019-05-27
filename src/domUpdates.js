@@ -31,6 +31,7 @@ const domUpdates = {
   },
 
   displayCurrentPlayer(player){
+    console.log(player)
     if(player.player === 'playerOne'){
       $('.player-one').addClass('your-turn');
       $('.player-two').removeClass('your-turn');

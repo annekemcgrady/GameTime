@@ -56,7 +56,6 @@ class Game {
   
   updateRound() {
     this.roundCount++;
-    // domUpdates.showCurrentRound('FINAL');
     if (this.roundCount > 2) {
       let finalRound = new FinalRound(this, this.gameSurveys[0], this.users[0], this.users[1], this.gameSurveys[1]);
       this.finalRound = finalRound;
@@ -64,7 +63,6 @@ class Game {
       domUpdates.revealFinalRoundPage()
       domUpdates.addHiddenClass();
       domUpdates.setAnswers(this.gameSurveys[0]);
-      // this.gameSurveys.shift();
       this.finalRound.displayFinalRoundCurrentQuestion();
       this.finalRound.updateCurrentPlayer();
     }else {
