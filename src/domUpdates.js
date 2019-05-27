@@ -88,7 +88,7 @@ const domUpdates = {
 
   revealFinalRoundPage() {
      $('.final-round-page').removeClass('hidden');
-    //  $('main').addClass('hidden')
+     $('main').addClass('hidden')
   }
 
 
