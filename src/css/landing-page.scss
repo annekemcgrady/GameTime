@@ -1,4 +1,4 @@
-$landing-page-main-color: hotpink;
+$landing-page-main-color: rgb(233, 96, 155);
 $landing-accent-color: gold;
 $landing-page-font: 'Sriracha', cursive;
 
@@ -7,23 +7,35 @@ $landing-page-font: 'Sriracha', cursive;
   font-family: $landing-page-font;
   height: 100vh;
   width: 100%;
-  background-color: $landing-page-main-color;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ),url('../images/pink-diamond-barbie-head.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+  background-size: cover;
   position: absolute;
   z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-top: -22px;
 
       .start-button {
-        background: transparent;
+        background: rgba(233, 96, 155, 0.7);
+        border: 5px solid $landing-page-main-color;
       }
       
-    
+    .intro-form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 380px;
+    }
+
     input {
       width: 300px;
-      height: 100px;
-      border: 2px solid $landing-accent-color;
+      height: 50px;
+      border: 5px solid $landing-page-main-color;
+      margin-bottom: 15px;
     }
 
     h1 {
