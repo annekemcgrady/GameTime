@@ -17,45 +17,9 @@ $landing-page-font: 'Sriracha', cursive;
 
       .start-button {
         background: transparent;
-        margin: 150px 0;
-        position: relative;
-        display: block;
-        color: $landing-accent-color;
-        width: 0px;
-        height: 0px;
-        border-right: 100px solid transparent;
-        border-bottom: 70px solid $landing-accent-color;
-        border-left: 100px solid transparent;
-        transform: rotate(36deg);
       }
-      .start-button:before {
-        border-bottom: 80px solid $landing-accent-color;
-        border-left: 30px solid transparent;
-        border-right: 30px solid transparent;
-        position: absolute;
-        height: 0;
-        width: 0;
-        top: -45px;
-        left: -65px;
-        display: block;
-        content: '';
-        transform: rotate(-35deg);
-      }
-      .start-button:after {
-        position: absolute;
-        display: block;
-        color: $landing-accent-color;
-        top: 3px;
-        left: -105px;
-        width: 0px;
-        height: 0px;
-        border-right: 100px solid transparent;
-        border-bottom: 70px solid $landing-accent-color;
-        border-left: 100px solid transparent;
-        transform: rotate(-70deg);
-        content: '';
-      }
-
+      
+    
     input {
       width: 300px;
       height: 100px;
@@ -65,5 +29,40 @@ $landing-page-font: 'Sriracha', cursive;
     h1 {
       color: $landing-accent-color;
     }
+  }
+
+
+  .final-round-page {
+    height: 100vh;
+    background-color: blue;
+  }
+
+  .final-main {
+    display: flex;
+  }
+
+  .final-player-guess {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .final-guess-input-label {
+    color: $landing-accent-color;
+    font-size: 24px;
+  }
+  
+  .final-guess-input {
+    width: 400px;
+    height: 50px;
+  }
+  
+  .submit-final-guess {
+    align-self: center;
+    background-color: $landing-accent-color;
+    color: $landing-page-main-color;
+    font-size: 24px;
+    margin-top: 10px;
+    width: 400px;
+    height: 100px;
   }
 

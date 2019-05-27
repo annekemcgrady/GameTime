@@ -17,7 +17,7 @@ class FinalRound extends Round {
   }
 
   displayFinalRoundCurrentQuestion() {
-    if (this.currentPlayer === user1){
+    if (this.currentPlayer === this.users[0]){
       domUpdates.displayCurrentQuestion(this.survey.survey.question);
     } else {
       domUpdates.displayCurrentQuestion(this.secondSurvey.survey.question);
@@ -30,7 +30,9 @@ class FinalRound extends Round {
     if (threeAnswers.map(el => el.answer.toUpperCase()).includes(guess.toUpperCase())){
       let scoreUpdate= threeAnswers.find(el => {
         if(el.answer.toUpperCase() === guess.toUpperCase()) {
+          console.log(el)
           return el
+        
         }
       })
       this.currentPlayer.updateFinalRoundScore(scoreUpdate.respondents);
@@ -43,8 +45,6 @@ class FinalRound extends Round {
   
   changeFinalRoundTurn() {
     domUpdates.displayFinalRoundScore();
-
- 
     // domUpdates.
     this.changeTurn();
     domUpdates.setAnswers(this.secondSurvey);

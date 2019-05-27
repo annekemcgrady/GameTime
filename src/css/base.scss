@@ -58,7 +58,7 @@ main {
 .player-two-x {
   border: 5px solid red;
   color: red;
-  font-size: 36px;
+  font-size: 42px;
   height: 50px;
   text-align: center;
   width: 50px;
@@ -83,7 +83,7 @@ main {
 .round-display {
   border: 2px dotted $primary-accent-color;
   color: #FFFFFF;
-  font-size: 16px;
+  font-size: 24px;
 }
 
 .survey-question {
@@ -134,10 +134,6 @@ main {
   height: 100px;
 }
 
-.money-round {
-  background-color: $primary-accent-color;
-  height: 100px;
-}
 
 
 
