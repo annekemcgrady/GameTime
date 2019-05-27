@@ -40,7 +40,7 @@ $(document).ready(function() {
 
 $('body').prepend('<section class="landing-page"><h1 class="landing-title"><a href="https://fontmeme.com/barbie-font/"><img src="https://fontmeme.com/permalink/190527/9e1dea4903b801f58a178b13c0f4ffdf.png" alt="barbie-font" border="0"></a></h1><form class="intro-form"><input class="name-one" placeholder="Player One Name"><input class="name-two" placeholder="Player Two Name"><button class="start-button" type="button" id="star-five"><img src="https://fontmeme.com/permalink/190526/3844168efd44c37ec2867285667d7ac4.png" alt="barbie-font" border="0"></a></button></form></section>')
 
-$('body').prepend('<section class="final-round-page hidden"><h1>Welcome To The Fa$t Money Round!</h1><div class="final-main"><section class="player-area player-one"><h3 class="player-one-name"><span class="name-player-one">NAME ONE</span></h3><div class="player-one-score">0</div><figure class="player-one-x">X</figure></section><figure class="survey"><h3 class="round-display">FAST MONEY ROUND <span class="round-num"> </span></h3><h2 class="survey-question"><span class="question"></span></h2><div class="survey-board"><h3 class="answer"><span class="answer-1 hidden"></span></h3><h3 class="respondents"><span class="respondents-1 hidden"></span></h3><h3 class="answer"><span class="answer-2 hidden"></span></h3><h3 class="respondents"><span class="respondents-2 hidden"></span></h3><h3 class="answer"><span class="answer-3 hidden"></span></h3><h3 class="respondents"><span class="respondents-3 hidden"></span></h3></div><form class="final-player-guess"><label class="final-guess-input-label" for="final-guess-input">Please enter your guess...</label><input type="text" id="final-guess-input" class="final-guess-input"><button type="button" class="submit-final-guess">SUBMIT GUESS</button></form></figure><section class="player-area player-two"><h3 class="player-two-name"><span class="name-player-two">NAME TWO</span></h3><div class="player-two-score">0</div><figure class="player-two-x">X</figure></section></div>')
+$('body').prepend('<section class="final-round-page hidden"><h1>Welcome To The Fa$t Money Round!</h1><div class="final-main"><section class="player-area player-one"><h3 class="player-one-name"><span class="name-player-one">NAME ONE</span></h3><div class="player-one-score">0</div></section><figure class="survey"><h3 class="round-display">FAST MONEY ROUND <span class="round-num"> </span></h3><time class="timer">Timer: <span class="seconds">30 </span>seconds</time><h2 class="survey-question"><span class="question"></span></h2><div class="survey-board"><h3 class="answer"><span class="answer-1 hidden"></span></h3><h3 class="respondents"><span class="respondents-1 hidden"></span></h3><h3 class="answer"><span class="answer-2 hidden"></span></h3><h3 class="respondents"><span class="respondents-2 hidden"></span></h3><h3 class="answer"><span class="answer-3 hidden"></span></h3><h3 class="respondents"><span class="respondents-3 hidden"></span></h3></div><form class="final-player-guess"><label class="final-guess-input-label" for="final-guess-input">Please enter your guess...</label><input type="text" id="final-guess-input" class="final-guess-input"><button type="button" class="submit-final-guess">SUBMIT GUESS</button></form></figure><section class="player-area player-two"><h3 class="player-two-name"><span class="name-player-two">NAME TWO</span></h3><div class="player-two-score">0</div></section></div>')
 
 
 $('.start-button').on('click', function(){
@@ -52,20 +52,65 @@ $('.start-button').on('click', function(){
     domUpdates.displayNames(user1.name, user2.name);
 })
 
-$('.player-guess').on('submit', function(e){
-    e.preventDefault();
-    console.log(game.round)
-    game.round.returnUserGuess($('#user-guess-input').val())
-    $('.guess-input').val('')
+$('.intro-form').on('submit', function(e){
+  e.preventDefault();
+  user1 = new User($('.name-one').val(), "playerOne");
+  user2 = new User($('.name-two').val(), "playerTwo");
+  game = new Game(data, user1, user2);
+  game.start();
+  $('.landing-page').slideToggle('slow');
+  domUpdates.displayNames(user1.name, user2.name);
 });
 
+$('.player-guess').on('submit', function(e){
+  e.preventDefault();
+  game.round.returnUserGuess($('#user-guess-input').val())
+  $('.guess-input').val('')
+});
 
 $('.submit-guess').on('click', function(e){
   e.preventDefault();
   game.round.returnUserGuess($('#user-guess-input').val())
   $('.guess-input').val('')
-  
 });
+  
+$('.final-player-guess').on('submit', function(e){
+  e.preventDefault();
+  game.finalRound.evaluateFinalRoundGuess($('#final-guess-input').val());
+  $('#final-guess-input').val('');
+});
+
+$('.submit-final-guess').on('click', function(e){
+  e.preventDefault();
+  game.finalRound.evaluateFinalRoundGuess($('#final-guess-input').val());
+  $('#final-guess-input').val('');
+});
+
+$('#final-guess-input').on('focus', function() {
+  var started = false;
+  var timeLeft = 30;
+  var elem = $('.seconds');
+  if (!started){
+    started = true;
+    var timerId = setInterval(countdown, 1000);
+  }
+
+  function countdown() {
+   if (timeLeft == -1) {
+       clearTimeout(timerId);
+       finalRound.changeFinalRoundTurn() 
+   } else {
+       elem.html(timeLeft);
+       timeLeft--;
+   }
+  }
+
+  // function doSomething() {
+  //  alert("Hi");
+  // }
+  console.log("Time's up")
+})
+
 
 
 

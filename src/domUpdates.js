@@ -99,6 +99,32 @@ const domUpdates = {
   //   window.clearTimeout(timeoutID);
   // }
 
+  displayEachFinalRoundAnswer() {
+    if ($('.answer-1').html().toUpperCase() === $('#final-guess-input').val().toUpperCase()){
+      $('.answer-1').removeClass('hidden');
+      $('.respondents-1').removeClass('hidden');
+    } else if ($('.answer-2').html().toUpperCase() === $('#final-guess-input').val().toUpperCase()){
+      $('.answer-2').removeClass('hidden');
+      $('.respondents-2').removeClass('hidden');
+    } else if ($('.answer-3').html().toUpperCase() === $('#final-guess-input').val().toUpperCase()){
+      $('.answer-3').removeClass('hidden');
+      $('.respondents-3').removeClass('hidden');
+    }   
+  },
+
+  displayFinalRoundScore(player, score){
+    if(player === 'playerTwo') {
+      $('.player-two-score').text(score);
+    } else {
+      $('.player-one-score').text(score);
+    }
+  },
+
+  displayFinalRoundCurrentQuestion(question) {
+    $('.question').html(question) 
+  }
+
+
 
 };
 
