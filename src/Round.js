@@ -72,8 +72,7 @@ class Round {
   }
 
   finishRoundMessage() {
-}
-
+  }
 }
 
 export default Round;

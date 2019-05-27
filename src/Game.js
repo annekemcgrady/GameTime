@@ -83,7 +83,6 @@ class Game {
     // DOM hard reset??????
   }
 
-
 }
 
 export default Game;

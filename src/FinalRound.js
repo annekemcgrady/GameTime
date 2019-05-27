@@ -51,7 +51,6 @@ class FinalRound extends Round {
     } 
   }
   // gameTimer()
-  
   changeFinalRoundTurn() {
     domUpdates.displayEachFinalRoundAnswer();
     domUpdates.displayFinalRoundScore();

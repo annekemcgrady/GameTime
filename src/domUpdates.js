@@ -124,10 +124,6 @@ const domUpdates = {
   displayFinalRoundCurrentQuestion(question) {
     $('.question').html(question) 
   }
-
-
-
 };
-
 
 export default domUpdates;

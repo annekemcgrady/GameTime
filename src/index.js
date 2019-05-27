@@ -116,12 +116,7 @@ $('.start-final-round-btn').on('click', function() {
 })
 
 
-
-
-
 })
 
 
-
 {/* <div class="survey-board"><h3 class="answer"><span class="answer-1 hidden"></span></h3><h3 class="respondents"><span class="respondents-1 hidden"></span></h3><h3 class="answer"><span class="answer-2 hidden"></span></h3><h3 class="respondents"><span class="respondents-2 hidden"></span></h3><h3 class="answer"><span class="answer-3 hidden"></span></h3><h3 class="respondents"><span class="respondents-3 hidden"></span></h3></div><form class="player-guess"><label class="guess-input-label" for="guess-input">Please enter your guess...</label><input type="text" id="user-guess-input" class="guess-input"><button type="button" class="submit-final-guess">SUBMIT GUESS</button></form></figure><section class="player-area player-two"><h3 class="player-two-name"><span class="name-player-two">NAME TWO</span></h3><div class="player-two-score">0</div><figure class="player-two-x">X</figure></section> */}
-
