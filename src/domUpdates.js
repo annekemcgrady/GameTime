@@ -89,7 +89,15 @@ const domUpdates = {
   revealFinalRoundPage() {
      $('.final-round-page').removeClass('hidden');
      $('main').addClass('hidden')
-  }
+  }, 
+
+  // delayedAlert() {
+  //   timeoutID = window.setTimeout(window.alert, 1000, 'That was really slow!');
+  // },
+
+  // clearAlert() {
+  //   window.clearTimeout(timeoutID);
+  // }
 
 
 };

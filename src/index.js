@@ -9,8 +9,10 @@ import fetch from 'cross-fetch';
 import './css/normalize.scss'
 import './css/base.scss';
 
+
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 import './images/turing-logo.png'
+import './images/pink-diamond-barbie-head.jpg'
 import data from '../data/surveys';
 
 import User from './User';
@@ -36,9 +38,9 @@ fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
 
 $(document).ready(function() {
 
-$('body').prepend('<section class="landing-page"><h1 class="landing-title">Welcome to Family Feud!  Let\'s Start the Game!</h1><input class="name-one" placeholder="Player One Name"><input class="name-two" placeholder="Player Two Name"><button class="start-button" type="button" id="star-five"><img src="https://fontmeme.com/permalink/190526/3844168efd44c37ec2867285667d7ac4.png" alt="barbie-font" border="0"></a></button></section>')
+$('body').prepend('<section class="landing-page"><h1 class="landing-title"><a href="https://fontmeme.com/barbie-font/"><img src="https://fontmeme.com/permalink/190527/9e1dea4903b801f58a178b13c0f4ffdf.png" alt="barbie-font" border="0"></a></h1><form class="intro-form"><input class="name-one" placeholder="Player One Name"><input class="name-two" placeholder="Player Two Name"><button class="start-button" type="button" id="star-five"><img src="https://fontmeme.com/permalink/190526/3844168efd44c37ec2867285667d7ac4.png" alt="barbie-font" border="0"></a></button></form></section>')
 
-$('body').prepend('<section class="final-round-page hidden"><h1><a href="https://fontmeme.com/barbie-font/"><img src="https://fontmeme.com/permalink/190527/9d3609fad958993950cd4e6869a56e20.png" alt="barbie-font" border="0"></a></h1><div class="final-main"><section class="player-area player-one"><h3 class="player-one-name"><span class="name-player-one">NAME ONE</span></h3><div class="player-one-score">0</div></section><figure class="survey"><h3 class="round-display">FAST MONEY ROUND<span class="round-num"> </span></h3><h2 class="survey-question"><span class="question"></span></h2><div class="survey-board"><h3 class="answer"><span class="answer-1 hidden"></span></h3><h3 class="respondents"><span class="respondents-1 hidden"></span></h3><h3 class="answer"><span class="answer-2 hidden"></span></h3><h3 class="respondents"><span class="respondents-2 hidden"></span></h3><h3 class="answer"><span class="answer-3 hidden"></span></h3><h3 class="respondents"><span class="respondents-3 hidden"></span></h3></div><form class="final-player-guess"><label class="final-guess-input-label" for="final-guess-input">Please enter your guess...</label><input type="text" id="final-guess-input" class="final-guess-input"><button type="button" class="submit-final-guess">SUBMIT GUESS</button></form></figure><section class="player-area player-two"><h3 class="player-two-name"><span class="name-player-two">NAME TWO</span></h3><div class="player-two-score">0</div></section></div>')
+$('body').prepend('<section class="final-round-page hidden"><h1>Welcome To The Fa$t Money Round!</h1><div class="final-main"><section class="player-area player-one"><h3 class="player-one-name"><span class="name-player-one">NAME ONE</span></h3><div class="player-one-score">0</div><figure class="player-one-x">X</figure></section><figure class="survey"><h3 class="round-display">FAST MONEY ROUND <span class="round-num"> </span></h3><h2 class="survey-question"><span class="question"></span></h2><div class="survey-board"><h3 class="answer"><span class="answer-1 hidden"></span></h3><h3 class="respondents"><span class="respondents-1 hidden"></span></h3><h3 class="answer"><span class="answer-2 hidden"></span></h3><h3 class="respondents"><span class="respondents-2 hidden"></span></h3><h3 class="answer"><span class="answer-3 hidden"></span></h3><h3 class="respondents"><span class="respondents-3 hidden"></span></h3></div><form class="final-player-guess"><label class="final-guess-input-label" for="final-guess-input">Please enter your guess...</label><input type="text" id="final-guess-input" class="final-guess-input"><button type="button" class="submit-final-guess">SUBMIT GUESS</button></form></figure><section class="player-area player-two"><h3 class="player-two-name"><span class="name-player-two">NAME TWO</span></h3><div class="player-two-score">0</div><figure class="player-two-x">X</figure></section></div>')
 
 
 $('.start-button').on('click', function(){

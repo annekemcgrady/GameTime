@@ -67,6 +67,8 @@ class Game {
       this.finalRound.displayFinalRoundCurrentQuestion();
       this.round.updateCurrentPlayer();
     }else {
+      // domUpdates.delayedAlert();
+      // domUpdates.clearAlert();
       domUpdates.showCurrentRound(this.roundCount);
       let newRound = new Round(this, this.gameSurveys[0], this.users[0], this.users[1]);
       this.round = newRound;
