@@ -24,16 +24,23 @@ let game;
 let user1;
 let user2;
 
+//fetch call is still returning undefined, currently using data file
 var feudData;
 
-fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
+  function fetchData() {
+  fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
     .then(function(response){
-        return response.json()
-    })
-    .then(function(parsedData){
-        feudData = parsedData;
+      response.json().then(function(info){
+        setData(info.data);
+      })
     })
     .catch(err => console.error('Error'));
+  }
+
+function setData(info){
+  feudData = info
+  console.log(feudData)
+}
 
 
 $(document).ready(function() {
@@ -44,6 +51,8 @@ $('body').prepend('<section class="final-round-page hidden"><h1><a href="https:/
 
 
 $('.start-button').on('click', function(){
+    fetchData()
+    console.log()
     user1 = new User($('.name-one').val(), "playerOne");
     user2 = new User($('.name-two').val(), "playerTwo");
     game = new Game(data, user1, user2);
