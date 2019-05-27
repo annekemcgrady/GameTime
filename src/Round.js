@@ -1,6 +1,7 @@
 import domUpdates from './domUpdates';
 import Game from './Game';
 import User from './User';
+import FinalRound from './FinalRound';
 
 
 class Round {
@@ -31,7 +32,9 @@ class Round {
   //MOVED FROM TURN
   returnUserGuess(guess) {
     this.guess = guess;
+    if(this.game.roundCount < 3) {
     this.evaluateGuess(guess);
+    } 
   }
 
   //MOVED FROM TURN

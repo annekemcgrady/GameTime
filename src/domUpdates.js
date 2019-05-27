@@ -1,7 +1,9 @@
 import $ from 'jquery';
+import FinalRound from './FinalRound';
+import Game from './Game';
 import User from './User';
 import Round from './Round';
-import Game from './Game';
+
 
 
 const domUpdates = {
@@ -82,6 +84,11 @@ const domUpdates = {
       $('.answer-3').removeClass('hidden');
       $('.respondents-3').removeClass('hidden');
     }   
+  },
+
+  revealFinalRoundPage() {
+     $('.final-round-page').removeClass('hidden');
+    //  $('main').addClass('hidden')
   }
 
 

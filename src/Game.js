@@ -56,16 +56,18 @@ class Game {
   
   updateRound() {
     this.roundCount++;
-    domUpdates.showCurrentRound(this.roundCount);
+    // domUpdates.showCurrentRound('FINAL');
     if (this.roundCount > 2) {
       let finalRound = new FinalRound(this, this.gameSurveys[0], this.users[0], this.users[1], this.gameSurveys[1]);
       this.finalRound = finalRound;
+      domUpdates.revealFinalRoundPage()
       domUpdates.addHiddenClass();
       domUpdates.setAnswers(this.gameSurveys[0]);
       // this.gameSurveys.shift();
       this.finalRound.displayFinalRoundCurrentQuestion();
       this.round.updateCurrentPlayer();
     }else {
+      domUpdates.showCurrentRound(this.roundCount);
       let newRound = new Round(this, this.gameSurveys[0], this.users[0], this.users[1]);
       this.round = newRound;
       domUpdates.addHiddenClass();
