@@ -54,7 +54,7 @@ $('.start-button').on('click', function(){
     console.log(feudData)
     user1 = new User($('.name-one').val(), "playerOne");
     user2 = new User($('.name-two').val(), "playerTwo");
-    game = new Game(data, user1, user2);
+    game = new Game(feudData, user1, user2);
     game.start();
     $('.landing-page').slideToggle('slow');
     domUpdates.displayNames(user1.name, user2.name);
