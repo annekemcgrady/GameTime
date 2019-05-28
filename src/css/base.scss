@@ -44,6 +44,11 @@ main {
   width: 25%;
 }
 
+.align-answer-respondents {
+  display: inline-flex;
+  width: 550px;
+}
+
 .name-player-one,
 .name-player-two {
   font-size: 42px;
@@ -82,6 +87,7 @@ main {
 
 .survey-question {
   text-align: center;
+  width: 550px;
 }
 
 .round-display {
