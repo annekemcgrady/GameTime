@@ -1,5 +1,6 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 @import './landing-page.scss';
+@import './final-page.scss';
 
 $primary-background:rgb(233, 96, 155);
 $primary-accent-color: gold;
@@ -124,7 +125,7 @@ main {
   height: 50px;
 }
 
-.submit-guess, .quit {
+.submit-guess {
   align-self: center;
   background-color: $primary-accent-color;
   color: $primary-background;

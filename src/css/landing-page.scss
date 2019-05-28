@@ -43,53 +43,8 @@ $landing-page-font: 'Sriracha', cursive;
     h1 {
       color: $landing-accent-color;
     }
-  }
 
-
-  //Create a separate final round scss file
-
-  .final-round-page {
-    height: 100vh;
-    background-color: hotpink;
+    .hidden {
+      display: none;
+    }
   }
-
-  .final-main {
-    display: flex;
-  }
-
-  .final-player-guess {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .final-guess-input-label {
-    color: $landing-accent-color;
-    font-size: 24px;
-  }
-  
-  .final-guess-input {
-    border-radius: 2%;
-    width: 400px;
-    height: 50px;
-  }
-  
-  .submit-final-guess {
-    align-self: center;
-    background-color: $landing-accent-color;
-    color: $landing-page-main-color;
-    font-size: 24px;
-    margin-top: 10px;
-    width: 400px;
-    height: 100px;
-  }
-
-.timer {
-  border-radius: 2%;
-  color: $landing-page-main-color;
-  font-size: 2.5em;
-  padding: 10px;
-  text-align: center;
-  margin: 0 auto;
-  background: $landing-accent-color;
-  }
-

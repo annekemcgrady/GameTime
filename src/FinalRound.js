@@ -15,14 +15,31 @@ class FinalRound extends Round {
   // this.turn = {};
     this.secondSurvey = secondSurvey;
     this.secondAnswers = this.secondSurvey.answers.sort((a,b) => b.respondents-a.respondents)
-    this.guessedAnswers = [];
+  }
+
+  updateCurrentPlayer() {
+    if(this.currentPlayer === null) {
+      this.currentPlayer = this.users[0];
+      domUpdates.displayCurrentPlayer(this.currentPlayer)
+      this.displayFinalRoundCurrentQuestion();
+    } else {
+      this.currentPlayer = this.users[1];
+      domUpdates.displayFinalRoundScore();
+      domUpdates.displayCurrentPlayer(this.currentPlayer)
+      domUpdates.addHiddenClassTwo();
+      this.displayFinalRoundCurrentQuestion();
+      domUpdates.setAnswers(this.secondSurvey);
+    }
   }
 
 
   displayFinalRoundCurrentQuestion() {
     if (this.currentPlayer === this.users[0]){
+      console.log('Player 1','HI');
       domUpdates.displayCurrentQuestion(this.survey.survey.question);
-    } else if(this.currentPlayer === this.users[1]){
+    } else {
+      // if(this.currentPlayer === this.users[1])
+      console.log('Player 2',this.currentPlayer);
       domUpdates.displayCurrentQuestion(this.secondSurvey.survey.question);
     }
   }
@@ -38,76 +55,15 @@ class FinalRound extends Round {
       let scoreUpdate = threeAnswers.find(el => {
         if(el.answer.toUpperCase() === guess.toUpperCase()) {
           return el
-        
         }
       })
-      console.log("HERE!")
       this.currentPlayer.updateFinalRoundScore(scoreUpdate.respondents);
-      domUpdates.displayEachAnswer(scoreUpdate);
+      domUpdates.displayEachFinalRoundAnswers(scoreUpdate.answer.toUpperCase());
     } 
   }
   // gameTimer()
   changeFinalRoundTurn() {
-    // domUpdates.displayEachFinalRoundAnswers();
-    domUpdates.displayFinalRoundScore();
-
-    // domUpdates.
-    this.changeTurn(this.users[0]);
-    domUpdates.setAnswers(this.survey);
-  }
-
-  displayFinalRoundCurrentQuestion() {
-    domUpdates.displayFinalRoundCurrentQuestion(this.survey.survey.question);
-  }
-
-  // compareAnswersToGuessedAnswers(guess) {
-  //   this.guessedAnswers.push(guess.toUpperCase())
-  //   if (this.currentPlayer === this.users[0]){
-  //     this.guessedAnswers.reduce((acc, word) => {
-  //       let upperCased = this.answers.map(el => el.answer.toUpperCase())
-  //       if (upperCased.includes(word)) {
-
-  //        acc.push(word)
-  //        console.log(acc)
-  //       }
-  //       return acc
-  //     }, [])
-  //   } else {
-  //     this.guessedAnswers.reduce((acc, word) => {
-  //       let upperCased = this.secondAnswers.map(el => el.answer.toUpperCase())
-  //       if (upperCased.includes(word)) {
-  //        acc.push(word)
-  //        console.log(acc)
-  //       }
-  //       return acc
-  //     }, [])
-  //   }
-  //   this.distributeCorrectAnswers(guess);
-  // }
-
-  distributeCorrectAnswers(guess) {
-    let uppercasedGuess = guess.toUpperCase();
-    let upperCased = this.answers.map(el => {
-      return {
-        answer: el.answer.toUpperCase(),
-        respondents: el.respondents
-      }
-    })
-    upperCased.forEach(answer => {
-      if(upperCased.includes(uppercasedGuess)){
-        let scoreUpdate= upperCased.find(el => {
-          if(el.answer === uppercasedGuess) {
-            return el
-          }
-        })
-        console.log(this.currentPlayer)
-        this.currentPlayer.updateFinalRoundScore(scoreUpdate.respondents)
-        domUpdates.displayEachFinalRoundAnswers(answer.answer);
-      }
-      console.log("YES!", guess)
-      console.log("RESPONDENTS", answer.respondents)
-      // let scoreAmount = upperCased.find(guess => guess.answer === guess)
-    })
+    // this.displayFinalRoundCurrentQuestion();
   }
 
 

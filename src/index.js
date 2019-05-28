@@ -24,16 +24,23 @@ let game;
 let user1;
 let user2;
 
+//fetch call is still returning undefined, currently using data file
 var feudData;
 
-fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
+  function fetchData() {
+  fetch('https://fe-apps.herokuapp.com/api/v1/gametime/1903/family-feud/data')
     .then(function(response){
-        return response.json()
-    })
-    .then(function(parsedData){
-        feudData = parsedData;
+      response.json().then(function(info){
+        setData(info.data);
+      })
     })
     .catch(err => console.error('Error'));
+  }
+
+function setData(info){
+  feudData = info
+  console.log(feudData)
+}
 
 
 $(document).ready(function() {
@@ -44,6 +51,8 @@ $('body').prepend('<section class="final-round-page hidden"><h1><a href="https:/
 
 
 $('.start-button').on('click', function(){
+    fetchData()
+    console.log()
     user1 = new User($('.name-one').val(), "playerOne");
     user2 = new User($('.name-two').val(), "playerTwo");
     game = new Game(data, user1, user2);
@@ -84,17 +93,23 @@ $('.final-player-guess').on('submit', function(e){
   $('#final-guess-input').val('');
 });
 
-$('.submit-final-guess').on('click', function(e){
-  e.preventDefault();
-  game.finalRound.distributeCorrectAnswers($('#final-guess-input').val());
-  $('#final-guess-input').val('');
-});
+// $('.submit-final-guess').on('click', function(e){
+//   e.preventDefault();
+//   game.finalRound.distributeCorrectAnswers($('#final-guess-input').val());
+//   $('#final-guess-input').val('');
+// });
 
 $('.submit-final-guess').on('submit', function(e){
-  e.preventDefault();
-  game.finalRound.distributeCorrectAnswers($('#final-guess-input').val());
-  $('#final-guess-input').val('');
+    e.preventDefault();
+    game.finalRound.evaluateFinalRoundGuess($('#final-guess-input').val());
+    $('#final-guess-input').val('');
 });
+
+$('.submit-final-guess').on('click', function(e){
+    e.preventDefault();
+    game.finalRound.evaluateFinalRoundGuess($('#final-guess-input').val());
+    $('#final-guess-input').val('');
+  });
 
 $('.start-final-round-btn').on('click', function() {
   var started = false;
@@ -108,7 +123,7 @@ $('.start-final-round-btn').on('click', function() {
   function countdown() {
    if (timeLeft == -1) {
        clearTimeout(timerId);
-       game.finalRound.changeFinalRoundTurn() 
+       game.finalRound.updateCurrentPlayer() 
    } else {
        elem.html(timeLeft);
        timeLeft--;
