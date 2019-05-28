@@ -61,7 +61,7 @@ class Game {
       this.finalRound = finalRound;
       domUpdates.revealFinalRoundPage()
       domUpdates.addHiddenClass();
-      domUpdates.setAnswers(this.gameSurveys[0]);
+      domUpdates.setFinalRoundAnswers(this.gameSurveys[0]);
       this.finalRound.updateCurrentPlayer();
     }else {
       domUpdates.showCurrentRound(this.roundCount);
