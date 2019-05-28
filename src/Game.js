@@ -59,15 +59,11 @@ class Game {
     if (this.roundCount > 2) {
       let finalRound = new FinalRound(this, this.gameSurveys[0], this.users[0], this.users[1], this.gameSurveys[1]);
       this.finalRound = finalRound;
-      console.log(this.finalRound)
       domUpdates.revealFinalRoundPage()
       domUpdates.addHiddenClass();
-      domUpdates.setAnswers(this.gameSurveys[0]);
-      this.finalRound.displayFinalRoundCurrentQuestion();
+      domUpdates.setFinalRoundAnswers(this.gameSurveys[0]);
       this.finalRound.updateCurrentPlayer();
     }else {
-      // domUpdates.delayedAlert();
-      // domUpdates.clearAlert();
       domUpdates.showCurrentRound(this.roundCount);
       let newRound = new Round(this, this.gameSurveys[0], this.users[0], this.users[1]);
       this.round = newRound;

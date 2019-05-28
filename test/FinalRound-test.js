@@ -67,18 +67,12 @@ describe('FinalRound', function() {
     expect(finalRound.secondSurvey).to.equal(sampleSurvey);
   });
   
-  it('should evaluate if each guess is correct or not, by eliminating the answer from the array of the correct answers', function() {
+  it('should evaluate if each guess is correct or not, by increasing the score of the current player', function() {
     finalRound.updateCurrentPlayer();
     finalRound.evaluateFinalRoundGuess("Donuts");
-    expect(finalRound.answers.length).to.equal(2);
+    expect(user1.score).to.equal(48);
   });
 
-  it('should change the current player to the other person', function() {
-    finalRound.updateCurrentPlayer();
-    expect(finalRound.currentPlayer.name).to.equal("Anneke");
-    finalRound.changeFinalRoundTurn();
-    expect(finalRound.currentPlayer.name).to.equal("Andreea");
-  });
 
 
 

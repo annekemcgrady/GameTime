@@ -87,7 +87,7 @@ describe('Round', function() {
   it('should switch the turn to the other player', function(){
     round.updateCurrentPlayer();
     expect(round.currentPlayer).to.equal(user1);
-    round.changeTurn();
+    round.changeTurn(user1);
     expect(round.currentPlayer).to.equal(user2)
   });
 

@@ -43,6 +43,8 @@ $landing-page-font: 'Sriracha', cursive;
     h1 {
       color: $landing-accent-color;
     }
-  }
 
-  
+    .hidden {
+      display: none;
+    }
+  }

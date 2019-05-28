@@ -17,51 +17,54 @@ class FinalRound extends Round {
     this.secondAnswers = this.secondSurvey.answers.sort((a,b) => b.respondents-a.respondents)
   }
 
+  updateCurrentPlayer() {
+    if(this.currentPlayer === null) {
+      this.currentPlayer = this.users[0];
+      domUpdates.displayCurrentPlayer(this.currentPlayer)
+      this.displayFinalRoundCurrentQuestion();
+    } else {
+      this.currentPlayer = this.users[1];
+      domUpdates.displayFinalRoundScore();
+      domUpdates.displayCurrentPlayer(this.currentPlayer)
+      domUpdates.addHiddenClass();
+      this.displayFinalRoundCurrentQuestion();
+      domUpdates.setFinalRoundAnswers(this.secondSurvey);
+    }
+  }
+
+
   displayFinalRoundCurrentQuestion() {
     if (this.currentPlayer === this.users[0]){
+      console.log('Player 1','HI');
       domUpdates.displayCurrentQuestion(this.survey.survey.question);
     } else {
+      // if(this.currentPlayer === this.users[1])
+      console.log('Player 2',this.currentPlayer);
       domUpdates.displayCurrentQuestion(this.secondSurvey.survey.question);
     }
   }
 
   evaluateFinalRoundGuess(guess) {
     let threeAnswers;
-    console.log("SURVEY", this.survey)
-    console.log("SECOND survey", this.secondSurvey)
-    console.log("ANSWERS", this.answers)
     if (this.currentPlayer === this.users[0]){
       threeAnswers = this.answers;
     } else {
       threeAnswers = this.secondAnswers;
     }
-    let threeWords = threeAnswers.map(el => el.answer.toUpperCase())
     if (threeAnswers.map(el => el.answer.toUpperCase()).includes(guess.toUpperCase())){
-      let scoreUpdate= threeAnswers.find(el => {
+      let scoreUpdate = threeAnswers.find(el => {
         if(el.answer.toUpperCase() === guess.toUpperCase()) {
-          console.log(el)
           return el
-        
         }
       })
       this.currentPlayer.updateFinalRoundScore(scoreUpdate.respondents);
-      domUpdates.displayEachAnswer(scoreUpdate);
-      let indexOfGuess = threeWords.indexOf(guess.toUpperCase());
-      this.eliminateGuessedAnswer(indexOfGuess);
+      console.log(scoreUpdate.answer.toUpperCase())
+      domUpdates.displayEachFinalRoundAnswers(scoreUpdate.answer.toUpperCase());
     } 
   }
   // gameTimer()
   changeFinalRoundTurn() {
-    domUpdates.displayEachFinalRoundAnswer();
-    domUpdates.displayFinalRoundScore();
-
-    // domUpdates.
-    this.changeTurn(this.users[0]);
-    domUpdates.setAnswers(this.secondSurvey);
-  }
-
-  displayFinalRoundCurrentQuestion() {
-    domUpdates.displayFinalRoundCurrentQuestion(this.survey.survey.question);
+    // this.displayFinalRoundCurrentQuestion();
   }
 
 
