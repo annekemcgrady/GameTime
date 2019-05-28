@@ -31,7 +31,6 @@ const domUpdates = {
   },
 
   displayCurrentPlayer(player){
-    console.log(player)
     if(player.player === 'playerOne'){
       $('.player-one').addClass('your-turn');
       $('.player-two').removeClass('your-turn');
@@ -72,20 +71,20 @@ const domUpdates = {
   },
 
 
-  displayAllCorrectAnswers() {
-    if($('.answer-1').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
-      $('.answer-1').removeClass('hidden');
-      $('.respondents-1').removeClass('hidden');
-    } 
-    if ($('.answer-2').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
-      $('.answer-2').removeClass('hidden');
-      $('.respondents-2').removeClass('hidden');
-    } 
-    if ($('.answer-3').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
-      $('.answer-3').removeClass('hidden');
-      $('.respondents-3').removeClass('hidden');
-    }   
-  },
+  // displayAllCorrectAnswers() {
+  //   if($('.answer-1').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
+  //     $('.answer-1').removeClass('hidden');
+  //     $('.respondents-1').removeClass('hidden');
+  //   } 
+  //   if ($('.answer-2').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
+  //     $('.answer-2').removeClass('hidden');
+  //     $('.respondents-2').removeClass('hidden');
+  //   } 
+  //   if ($('.answer-3').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
+  //     $('.answer-3').removeClass('hidden');
+  //     $('.respondents-3').removeClass('hidden');
+  //   }   
+  // },
 
   revealFinalRoundPage() {
      $('.final-round-page').removeClass('hidden');
@@ -100,30 +99,41 @@ const domUpdates = {
   //   window.clearTimeout(timeoutID);
   // }
 
-  displayEachFinalRoundAnswer() {
-    if ($('.answer-1').html().toUpperCase() === $('#final-guess-input').val().toUpperCase()){
-      $('.answer-1').removeClass('hidden');
-      $('.respondents-1').removeClass('hidden');
-    } else if ($('.answer-2').html().toUpperCase() === $('#final-guess-input').val().toUpperCase()){
-      $('.answer-2').removeClass('hidden');
-      $('.respondents-2').removeClass('hidden');
-    } else if ($('.answer-3').html().toUpperCase() === $('#final-guess-input').val().toUpperCase()){
-      $('.answer-3').removeClass('hidden');
-      $('.respondents-3').removeClass('hidden');
-    }   
+  displayEachFinalRoundAnswers(finalGuess) {
+    setTimeout(function(){
+      if ($('.answer-1').html().toUpperCase() === finalGuess){
+        $('.answer-1').fadeIn(0).removeClass('hidden');
+        $('.respondents-1').fadeIn(0).removeClass('hidden');
+      } else if ($('.answer-2').html().toUpperCase() === finalGuess){
+        $('.answer-2').fadeIn(0).removeClass('hidden');
+        $('.respondents-2').fadeIn(0).removeClass('hidden');
+      } else if ($('.answer-3').html().toUpperCase() === finalGuess){
+        $('.answer-3').fadeIn(0).removeClass('hidden');
+        $('.respondents-3').fadeIn(0).removeClass('hidden');
+      }   
+    }, 15000)
   },
 
   displayFinalRoundScore(player, score){
+    console.log("player", player)
+    console.log("score", score)
+    setTimeout(function(){
     if(player === 'playerTwo') {
       $('.player-two-score').text(score);
     } else {
       $('.player-one-score').text(score);
     }
+    },15000)
   },
 
   displayFinalRoundCurrentQuestion(question) {
     $('.question').html(question) 
   }
+
+
+
+
+
 };
 
 export default domUpdates;

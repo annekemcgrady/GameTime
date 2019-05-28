@@ -86,7 +86,13 @@ $('.final-player-guess').on('submit', function(e){
 
 $('.submit-final-guess').on('click', function(e){
   e.preventDefault();
-  game.finalRound.evaluateFinalRoundGuess($('#final-guess-input').val());
+  game.finalRound.distributeCorrectAnswers($('#final-guess-input').val());
+  $('#final-guess-input').val('');
+});
+
+$('.submit-final-guess').on('submit', function(e){
+  e.preventDefault();
+  game.finalRound.distributeCorrectAnswers($('#final-guess-input').val());
   $('#final-guess-input').val('');
 });
 
