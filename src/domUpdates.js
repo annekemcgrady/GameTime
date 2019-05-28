@@ -90,6 +90,7 @@ const domUpdates = {
   revealFinalRoundPage() {
      $('.final-round-page').removeClass('hidden');
      $('main').addClass('hidden')
+     $('header').addClass('hidden')
   }, 
 
   // delayedAlert() {
