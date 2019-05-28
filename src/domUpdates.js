@@ -62,6 +62,7 @@ const domUpdates = {
   },
 
   addHiddenClass() {
+    console.log("HI")
     $('.answer-1').addClass('hidden');
     $('.respondents-1').addClass('hidden');
     $('.answer-2').addClass('hidden');
@@ -69,7 +70,6 @@ const domUpdates = {
     $('.answer-3').addClass('hidden');
     $('.respondents-3').addClass('hidden');
   },
-
 
   // displayAllCorrectAnswers() {
   //   if($('.answer-1').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
@@ -100,7 +100,7 @@ const domUpdates = {
   // }
 
   displayEachFinalRoundAnswers(finalGuess) {
-    setTimeout(function(){
+    // setTimeout(function(){
       if ($('.answer-1').html().toUpperCase() === finalGuess){
         $('.answer-1').fadeIn(0).removeClass('hidden');
         $('.respondents-1').fadeIn(0).removeClass('hidden');
@@ -111,7 +111,7 @@ const domUpdates = {
         $('.answer-3').fadeIn(0).removeClass('hidden');
         $('.respondents-3').fadeIn(0).removeClass('hidden');
       }   
-    }, 15000)
+    // },15000)
   },
 
   displayFinalRoundScore(player, score){
@@ -123,12 +123,12 @@ const domUpdates = {
     } else {
       $('.player-one-score').text(score);
     }
-    },15000)
+    },900)
   },
 
-  displayFinalRoundCurrentQuestion(question) {
-    $('.question').html(question) 
-  }
+  // displayFinalRoundCurrentQuestion(question) {
+  //   $('.question').html(question) 
+  // }
 
 
 

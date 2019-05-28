@@ -93,17 +93,23 @@ $('.final-player-guess').on('submit', function(e){
   $('#final-guess-input').val('');
 });
 
-$('.submit-final-guess').on('click', function(e){
-  e.preventDefault();
-  game.finalRound.distributeCorrectAnswers($('#final-guess-input').val());
-  $('#final-guess-input').val('');
-});
+// $('.submit-final-guess').on('click', function(e){
+//   e.preventDefault();
+//   game.finalRound.distributeCorrectAnswers($('#final-guess-input').val());
+//   $('#final-guess-input').val('');
+// });
 
 $('.submit-final-guess').on('submit', function(e){
-  e.preventDefault();
-  game.finalRound.distributeCorrectAnswers($('#final-guess-input').val());
-  $('#final-guess-input').val('');
+    e.preventDefault();
+    game.finalRound.evaluateFinalRoundGuess($('#final-guess-input').val());
+    $('#final-guess-input').val('');
 });
+
+$('.submit-final-guess').on('click', function(e){
+    e.preventDefault();
+    game.finalRound.evaluateFinalRoundGuess($('#final-guess-input').val());
+    $('#final-guess-input').val('');
+  });
 
 $('.start-final-round-btn').on('click', function() {
   var started = false;
@@ -117,7 +123,7 @@ $('.start-final-round-btn').on('click', function() {
   function countdown() {
    if (timeLeft == -1) {
        clearTimeout(timerId);
-       game.finalRound.changeFinalRoundTurn() 
+       game.finalRound.updateCurrentPlayer() 
    } else {
        elem.html(timeLeft);
        timeLeft--;
