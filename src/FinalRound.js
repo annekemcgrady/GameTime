@@ -28,7 +28,7 @@ class FinalRound extends Round {
       domUpdates.displayCurrentPlayer(this.currentPlayer)
       domUpdates.addHiddenClass();
       this.displayFinalRoundCurrentQuestion();
-      domUpdates.setAnswers(this.secondSurvey);
+      domUpdates.setFinalRoundAnswers(this.secondSurvey);
     }
   }
 
@@ -58,6 +58,7 @@ class FinalRound extends Round {
         }
       })
       this.currentPlayer.updateFinalRoundScore(scoreUpdate.respondents);
+      console.log(scoreUpdate.answer.toUpperCase())
       domUpdates.displayEachFinalRoundAnswers(scoreUpdate.answer.toUpperCase());
     } 
   }
