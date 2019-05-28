@@ -50,25 +50,25 @@ const domUpdates = {
 
   displayEachAnswer() {
     if ($('.answer-1').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
-      $('.answer-1').removeClass('hidden');
-      $('.respondents-1').removeClass('hidden');
+      $('.answer-1').toggle('hidden');
+      $('.respondents-1').toggle('hidden');
     } else if ($('.answer-2').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
-      $('.answer-2').removeClass('hidden');
-      $('.respondents-2').removeClass('hidden');
+      $('.answer-2').toggle('hidden');
+      $('.respondents-2').toggle('hidden');
     } else if ($('.answer-3').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
-      $('.answer-3').removeClass('hidden');
-      $('.respondents-3').removeClass('hidden');
+      $('.answer-3').toggle('hidden');
+      $('.respondents-3').toggle('hidden');
     }   
   },
 
   addHiddenClass() {
     console.log("HI")
-    $('.answer-1').addClass('hidden');
-    $('.respondents-1').addClass('hidden');
-    $('.answer-2').addClass('hidden');
-    $('.respondents-2').addClass('hidden');
-    $('.answer-3').addClass('hidden');
-    $('.respondents-3').addClass('hidden');
+    $('.answer-1').toggle('hidden');
+    $('.respondents-1').toggle('hidden');
+    $('.answer-2').toggle('hidden');
+    $('.respondents-2').toggle('hidden');
+    $('.answer-3').toggle('hidden');
+    $('.respondents-3').toggle('hidden');
   },
 
   // displayAllCorrectAnswers() {
@@ -100,18 +100,18 @@ const domUpdates = {
   // }
 
   displayEachFinalRoundAnswers(finalGuess) {
-    // setTimeout(function(){
+    setTimeout(function(){
       if ($('.answer-1').html().toUpperCase() === finalGuess){
-        $('.answer-1').fadeIn(0).removeClass('hidden');
-        $('.respondents-1').fadeIn(0).removeClass('hidden');
+        $('.answer-1').fadeIn(0).toggle('hidden');
+        $('.respondents-1').fadeIn(0).toggle('hidden');
       } else if ($('.answer-2').html().toUpperCase() === finalGuess){
-        $('.answer-2').fadeIn(0).removeClass('hidden');
-        $('.respondents-2').fadeIn(0).removeClass('hidden');
+        $('.answer-2').fadeIn(0).toggle('hidden');
+        $('.respondents-2').fadeIn(0).toggle('hidden');
       } else if ($('.answer-3').html().toUpperCase() === finalGuess){
-        $('.answer-3').fadeIn(0).removeClass('hidden');
-        $('.respondents-3').fadeIn(0).removeClass('hidden');
+        $('.answer-3').fadeIn(0).toggle('hidden');
+        $('.respondents-3').fadeIn(0).toggle('hidden');
       }   
-    // },15000)
+    },15000)
   },
 
   displayFinalRoundScore(player, score){
@@ -123,7 +123,7 @@ const domUpdates = {
     } else {
       $('.player-one-score').text(score);
     }
-    },900)
+    },5000)
   },
 
   // displayFinalRoundCurrentQuestion(question) {

@@ -26,7 +26,7 @@ class FinalRound extends Round {
       this.currentPlayer = this.users[1];
       domUpdates.displayFinalRoundScore();
       domUpdates.displayCurrentPlayer(this.currentPlayer)
-      domUpdates.addHiddenClassTwo();
+      domUpdates.addHiddenClass();
       this.displayFinalRoundCurrentQuestion();
       domUpdates.setAnswers(this.secondSurvey);
     }
