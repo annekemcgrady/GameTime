@@ -2,7 +2,7 @@
 
 ## Description
 
-
+This is an app version of game Family Feud made using jQuery and Javascript. When playing this game, two players will participate in two rounds where they will be able to answer with possible responses based on the .
 
 ## Installation
 
@@ -14,6 +14,15 @@ Once you have cloned the repo, install the library dependencies. Run:
 ```bash
 npm install
 ```
+
+To view the app in action, run the following command in your terminal:
+
+```bash
+npm start
+```
+
+Then, go to http://localhost:8080/ in your browser to see the code running in the browser.
+
 ## Screenshots
 
 
