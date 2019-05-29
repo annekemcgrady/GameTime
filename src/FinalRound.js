@@ -6,13 +6,6 @@ import Round from './Round';
 class FinalRound extends Round {
   constructor(game, survey, user1, user2, secondSurvey) {
   super(game, survey, user1, user2)
-  // this.game = game;
-  // this.survey = survey;
-  // this.answers = this.survey.answers.sort((a,b) => b.respondents-a.respondents)
-  // this.users = [user1, user2];
-  // this.currentPlayer = null;
-  // this.guess = '';
-  // this.turn = {};
     this.secondSurvey = secondSurvey;
     this.secondAnswers = this.secondSurvey.answers.sort((a,b) => b.respondents-a.respondents)
   }
@@ -23,23 +16,25 @@ class FinalRound extends Round {
       domUpdates.displayCurrentPlayer(this.currentPlayer)
       this.displayFinalRoundCurrentQuestion();
     } else {
+        if(this.currentPlayer === this.users[1]) {
+          domUpdates.displayWinner(this.users[0], this.users[1])
+      } else {
       this.currentPlayer = this.users[1];
+      domUpdates.addDisabledAttribute()
       domUpdates.displayFinalRoundScore();
       domUpdates.displayCurrentPlayer(this.currentPlayer)
       domUpdates.addHiddenClass();
       this.displayFinalRoundCurrentQuestion();
       domUpdates.setFinalRoundAnswers(this.secondSurvey);
+      }
     }
   }
 
 
   displayFinalRoundCurrentQuestion() {
     if (this.currentPlayer === this.users[0]){
-      console.log('Player 1','HI');
       domUpdates.displayCurrentQuestion(this.survey.survey.question);
     } else {
-      // if(this.currentPlayer === this.users[1])
-      console.log('Player 2',this.currentPlayer);
       domUpdates.displayCurrentQuestion(this.secondSurvey.survey.question);
     }
   }
@@ -62,11 +57,6 @@ class FinalRound extends Round {
       domUpdates.displayEachFinalRoundAnswers(scoreUpdate.answer.toUpperCase());
     } 
   }
-  // gameTimer()
-  changeFinalRoundTurn() {
-    // this.displayFinalRoundCurrentQuestion();
-  }
-
 
 }
 

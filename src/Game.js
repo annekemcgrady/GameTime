@@ -63,6 +63,7 @@ class Game {
       domUpdates.addHiddenClass();
       domUpdates.setFinalRoundAnswers(this.gameSurveys[0]);
       this.finalRound.updateCurrentPlayer();
+
     }else {
       domUpdates.showCurrentRound(this.roundCount);
       let newRound = new Round(this, this.gameSurveys[0], this.users[0], this.users[1]);
@@ -73,10 +74,6 @@ class Game {
       this.round.displayCurrentQuestion();
       this.round.updateCurrentPlayer();
     }
-  }
-
-  endGame() {
-    // DOM hard reset??????
   }
 
 }
