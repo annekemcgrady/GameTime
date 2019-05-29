@@ -1,6 +1,5 @@
 import domUpdates from './domUpdates';
 import Round from './Round';
-import data from '../data/surveys';
 import FinalRound from './FinalRound';
 
 class Game {
@@ -14,7 +13,7 @@ class Game {
     this.finalRound = {};
   }
 
-  selectFourQuestionsIDs(){
+  selectFourQuestionsIDs() {
     let allSurveys = this.data.surveys.map(el => el.id)
     let currentIndex = allSurveys.length;
     let tempValue, randomIndex;
@@ -25,11 +24,11 @@ class Game {
       allSurveys[currentIndex] = allSurveys[randomIndex]
       allSurveys[randomIndex] = tempValue;
     }
-    this.ids = this.ids.concat(allSurveys.splice(0,4))
+    this.ids = this.ids.concat(allSurveys.splice(0, 4))
   }
     
   setGameSurveyObjects() {
-  this.gameSurveys = this.ids.map(el => this.createSurveyObject(el))
+    this.gameSurveys = this.ids.map(el => this.createSurveyObject(el))
   }
 
   createSurveyObject(id) {
@@ -64,7 +63,7 @@ class Game {
       domUpdates.setFinalRoundAnswers(this.gameSurveys[0]);
       this.finalRound.updateCurrentPlayer();
 
-    }else {
+    } else {
       domUpdates.showCurrentRound(this.roundCount);
       let newRound = new Round(this, this.gameSurveys[0], this.users[0], this.users[1]);
       this.round = newRound;
