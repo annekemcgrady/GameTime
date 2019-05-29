@@ -2,7 +2,7 @@
 
 ## Description
 
-This is an app version of game Family Feud made using jQuery and Javascript. When playing this game, two players will participate in two rounds where they will be able to answer with possible responses based on the .
+This is an app version of TV game show Family Feud. It was made using jQuery and Javascript OOP (Object Oriented Programming) principles. Each game consists of three rounds that can be played with two players. The first two rounds will allow the users to guess the possible responses until all three have been answered, toggling between the two users when an incorrect answer is submitted. After the second round, it moves to a final round, where the points are doubled and each player makes as many guesses for the possible answers within 30 seconds. At the end of this round, the winner of the game appears.
 
 ## Installation
 
