@@ -1,10 +1,13 @@
-$landing-page-main-color: rgb(233, 96, 155);
+$landing-page-main-color: rgb(211, 67, 129);
 $landing-accent-color: gold;
 $landing-page-font: 'Sriracha', cursive;
 
 .final-round-page {
   height: 100vh;
-  background-color: hotpink;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url('../images/pink-glitter-hearts.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .final-page-header {
