@@ -73,7 +73,4 @@ describe('FinalRound', function() {
     expect(user1.score).to.equal(48);
   });
 
-
-
-
 });

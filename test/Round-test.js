@@ -83,7 +83,7 @@ describe('Round', function() {
     round.updateCurrentPlayer();
     expect(round.currentPlayer).to.equal(user1);
   });
-// MOVED FROM TURN
+
   it('should switch the turn to the other player', function(){
     round.updateCurrentPlayer();
     expect(round.currentPlayer).to.equal(user1);
@@ -147,31 +147,5 @@ describe('Round', function() {
      expect(game.roundCount).to.equal(2);
    })
 
-
-//MOVED FROM TURN
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
   
-
-
-
-
-
 })

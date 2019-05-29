@@ -29,7 +29,6 @@ class Round {
     }
   }
 
-  //MOVED FROM TURN
   returnUserGuess(guess) {
     this.guess = guess;
     if(this.game.roundCount < 3) {
@@ -37,7 +36,6 @@ class Round {
     } 
   }
 
-  //MOVED FROM TURN
   evaluateGuess(guess) {
     let threeAnswers = this.answers;
     let threeWords = threeAnswers.map(el => el.answer.toUpperCase())
@@ -71,8 +69,6 @@ class Round {
     }
   }
 
-  finishRoundMessage() {
-  }
 }
 
 export default Round;

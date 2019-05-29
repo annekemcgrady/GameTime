@@ -58,14 +58,14 @@ $landing-page-font: 'Sriracha', cursive;
 }
 
 .timer {
-border-radius: 2%;
-color: $landing-page-main-color;
-font-size: 2.0em;
-padding: 10px;
-text-align: center;
-margin: 0 auto;
-background: $landing-accent-color;
-}
+  border-radius: 2%;
+  color: $landing-page-main-color;
+  font-size: 2.0em;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+  background: $landing-accent-color;
+  }
 
 .quit {
   width: 150px;
@@ -75,4 +75,26 @@ background: $landing-accent-color;
   color: $landing-accent-color;
   align-self: center;
   margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden-final {
+  visibility: hidden;
+}
+
+.winner-display {
+  z-index: 11;
+  width: 100%;
+  height: 100%;
+  background:  $landing-page-main-color;
+  font-size: 2.5em;
+  color: $landing-accent-color;
+  text-align: center;
+}
+
+.barbie-winning-image {
+  height: 60vh;
 }

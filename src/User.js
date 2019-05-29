@@ -16,12 +16,8 @@ class User {
 
   updateFinalRoundScore(amount) {
     this.score += amount*2
-    console.log("AMOUNT", amount)
-    console.log("PLAYER", this.player)
-    console.log("SCORE", this.score)
     domUpdates.displayFinalRoundScore(this.player, this.score);
   }
-  //DOM update name 
 
 }
 

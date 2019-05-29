@@ -71,66 +71,40 @@ const domUpdates = {
   },
 
   addHiddenClass() {
-    console.log("HIDDEN")
     $('.answer-1').addClass('hidden');
     $('.respondents-1').addClass('hidden');
     $('.answer-2').addClass('hidden');
     $('.respondents-2').addClass('hidden');
     $('.answer-3').addClass('hidden');
     $('.respondents-3').addClass('hidden');
-    $('.answer-1-final').toggle('hidden');
-    $('.respondents-1-final').toggle('hidden');
-    $('.answer-2-final').toggle('hidden');
-    $('.respondents-2-final').toggle('hidden');
-    $('.answer-3-final').toggle('hidden');
-    $('.respondents-3-final').toggle('hidden');
+    $('.answer-1-final').addClass('hidden-final');
+    $('.respondents-1-final').addClass('hidden-final');
+    $('.answer-2-final').addClass('hidden-final');
+    $('.respondents-2-final').addClass('hidden-final');
+    $('.answer-3-final').addClass('hidden-final');
+    $('.respondents-3-final').addClass('hidden-final');
     
   },
 
-  // displayAllCorrectAnswers() {
-  //   if($('.answer-1').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
-  //     $('.answer-1').removeClass('hidden');
-  //     $('.respondents-1').removeClass('hidden');
-  //   } 
-  //   if ($('.answer-2').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
-  //     $('.answer-2').removeClass('hidden');
-  //     $('.respondents-2').removeClass('hidden');
-  //   } 
-  //   if ($('.answer-3').html().toUpperCase() === $('#user-guess-input').val().toUpperCase()){
-  //     $('.answer-3').removeClass('hidden');
-  //     $('.respondents-3').removeClass('hidden');
-  //   }   
-  // },
-
   revealFinalRoundPage() {
-     $('.final-round-page').removeClass('hidden');
-     $('main').addClass('hidden')
-     $('header').addClass('hidden')
+    $('.final-round-page').removeClass('hidden');
+    $('main').addClass('hidden')
+    $('header').addClass('hidden')
   }, 
 
-  // delayedAlert() {
-  //   timeoutID = window.setTimeout(window.alert, 1000, 'That was really slow!');
-  // },
-
-  // clearAlert() {
-  //   window.clearTimeout(timeoutID);
-  // }
-
   displayEachFinalRoundAnswers(finalGuess) {
-    console.log('DISPLAY EACH FINAL ANSWER', finalGuess)
-    console.log($('.answer-1-final').html())
     setTimeout(function(){
       if ($('.answer-1-final').html().toUpperCase() === finalGuess){
-        $('.answer-1-final').fadeIn(0).removeClass('hidden');
-        $('.respondents-1-final').fadeIn(0).removeClass('hidden');
+        $('.answer-1-final').fadeIn(0).removeClass('hidden-final');
+        $('.respondents-1-final').fadeIn(0).removeClass('hidden-final');
       } else if ($('.answer-2-final').html().toUpperCase() === finalGuess){
-        $('.answer-2-final').fadeIn(0).removeClass('hidden');
-        $('.respondents-2-final').fadeIn(0).removeClass('hidden');
+        $('.answer-2-final').fadeIn(0).removeClass('hidden-final');
+        $('.respondents-2-final').fadeIn(0).removeClass('hidden-final');
       } else if ($('.answer-3-final').html().toUpperCase() === finalGuess){
-        $('.answer-3-final').fadeIn(0).removeClass('hidden');
-        $('.respondents-3-final').fadeIn(0).removeClass('hidden');
+        $('.answer-3-final').fadeIn(0).removeClass('hidden-final');
+        $('.respondents-3-final').fadeIn(0).removeClass('hidden-final');
       }   
-    },12000)
+    },28000)
   },
 
   displayFinalRoundScore(player, score){
@@ -140,16 +114,25 @@ const domUpdates = {
     } else {
       $('.player-one-score').text(score);
     }
-    },15000)
+    },29000)
   },
 
-  // displayFinalRoundCurrentQuestion(question) {
-  //   $('.question').html(question) 
-  // }
+displayWinner(user1, user2){
+$('body').prepend('<section class="winner-display"><h1>CONGRATULATIONS <span class="winner-name"></span></h1><img class="barbie-winning-image" src="https://i.pinimg.com/originals/38/2d/c6/382dc6b9f23add6acefc189b4026b75e.jpg" alt="Barbie winning a pageant"><h2> YOUR SCORE: <span class="winner-score"></span></h2></section>')
+$('.final-round-page').addClass('hidden')
 
+if(user1.score > user2.score) {
+$('.winner-score').html(user1.score)
+$('.winner-name').html(user1.name)
+} else {
+$('.winner-score').html(user2.score)
+$('.winner-name').html(user2.name)
+  }
+},
 
-
-
+  addDisabledAttribute() {
+    $('#final-guess-input').attr('disabled')
+  }
 
 };
 
