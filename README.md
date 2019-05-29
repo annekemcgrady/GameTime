@@ -24,7 +24,7 @@ npm start
 Then, go to http://localhost:8080/ in your browser to see the code running in the browser.
 
 ## Screenshots
-
+![Imgur](https://i.imgur.com/sDbY4AH.png)
 
 ## Learning Goals
 
