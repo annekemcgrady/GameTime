@@ -16,6 +16,11 @@ $landing-page-font: 'Sriracha', cursive;
   font-size: 1.5em;
 }
 
+.align-answer-respondents {
+  display: inline-flex;
+  width: 550px;
+}
+
 .start-final-round-btn {
   background-color: $landing-accent-color;
   border: 2px solid white;
@@ -47,6 +52,10 @@ $landing-page-font: 'Sriracha', cursive;
   height: 50px;
 }
 
+.survey-question {
+  text-align: center;
+  width: 550px;
+}
 .submit-final-guess {
   align-self: center;
   background-color: $landing-accent-color;
